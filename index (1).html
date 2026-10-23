@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>St John's College – Marist Man Badge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#002366; --blue-d:#001549; --blue-2:#1a3a8a; --yellow:#ffe200; --yellow-soft:#fff8c2;
+  --ink:#14233f; --muted:#4f5d7c; --bg:#eef1f9; --card:#ffffff; --line:#dbe1f0;
+  --ok:#14724a; --ok-bg:#dcf4e6; --warn:#7d5200; --warn-bg:#fff0c4; --bad:#a3231f; --bad-bg:#fde3e1;
+  --radius:16px; --shadow:0 1px 2px rgba(0,35,102,.06),0 8px 24px -10px rgba(0,35,102,.18);
+  --head:"Fraunces",Georgia,"Times New Roman",serif; --body:"Nunito Sans",Verdana,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;
+  background:radial-gradient(1000px 420px at 100% -80px,rgba(255,226,0,.22),transparent 70%),radial-gradient(900px 500px at -10% 30%,rgba(26,58,138,.10),transparent 70%),linear-gradient(180deg,#f4f6fc,#e9edf8);background-attachment:fixed}
+body.viewas{border:8px solid var(--yellow)}
+h1,h2,h3{font-family:var(--head);color:var(--blue);line-height:1.2;margin:0 0 .5rem;font-weight:700;letter-spacing:-.01em}
+h1{font-size:1.9rem} h2{font-size:1.35rem} h3{font-size:1.1rem}
+a{color:var(--blue-2)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue-2);outline-offset:2px}
+
+/* Header */
+header.top{background:linear-gradient(120deg,var(--blue-d),var(--blue) 55%,var(--blue-2));color:#fff;border-bottom:5px solid var(--yellow);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-60px;top:-90px;width:260px;height:260px;border-radius:50%;border:34px solid rgba(255,226,0,.10);pointer-events:none}
+.top-in{max-width:1100px;margin:0 auto;padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:.8rem;margin-right:auto}
+.brand b{font-family:var(--head);color:var(--yellow);font-size:1.25rem;display:block;line-height:1.1}
+.brand span{font-size:.85rem;color:#cfdbff;letter-spacing:.02em}
+.who{font-size:.92rem;color:#e3eaff;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.live{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;background:rgba(255,255,255,.14);padding:.25rem .7rem;border-radius:99px}
+.live i{width:9px;height:9px;border-radius:50%;background:#46e08a;display:inline-block;box-shadow:0 0 0 0 rgba(70,224,138,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(70,224,138,0)}100%{box-shadow:0 0 0 0 rgba(70,224,138,0)}}
+nav.tabs{background:rgba(255,255,255,.85);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.tabs-in{max-width:1100px;margin:0 auto;display:flex;gap:.3rem;padding:.45rem .6rem;overflow-x:auto}
+.tab{border:0;background:none;padding:.6rem 1.1rem;font-weight:800;color:var(--muted);cursor:pointer;border-radius:99px;white-space:nowrap}
+.tab[aria-current="page"]{background:var(--blue);color:#fff}
+.tab:not([aria-current]):hover{background:var(--yellow-soft);color:var(--blue)}
+.count{background:var(--yellow);color:var(--blue);border-radius:99px;padding:0 .5rem;font-size:.85rem;margin-left:.4rem}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:1.4rem 1rem 2.4rem}
+footer{background:var(--blue-d);color:#cfdbff;text-align:center;padding:1.2rem;font-size:.9rem;border-top:5px solid var(--yellow)}
+footer button{background:none;border:0;color:#cfdbff;text-decoration:underline;cursor:pointer;font-size:.85rem}
+.banner{background:var(--yellow);color:var(--blue);font-weight:800;padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+
+/* Components */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+.grid{display:grid;gap:1rem}
+.g3{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.grid>.card{margin-bottom:0}
+.btn{border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:12px;padding:.65rem 1.2rem;font-weight:800;cursor:pointer;min-height:44px;transition:transform .12s,box-shadow .12s,background .12s}
+.btn:hover{background:var(--blue-2);border-color:var(--blue-2);transform:translateY(-1px);box-shadow:0 6px 14px -6px rgba(0,35,102,.5)}
+.btn:active{transform:none}
+.btn.alt{background:var(--yellow);color:var(--blue);border-color:var(--yellow)}
+.btn.alt:hover{background:#ffee52;border-color:#ffee52}
+.btn.ghost{background:#fff;color:var(--blue)}
+.btn.ghost:hover{background:var(--yellow-soft);border-color:var(--blue)}
+.btn.bad{background:#fff;color:var(--bad);border-color:var(--bad)}
+.btn.bad:hover{background:var(--bad-bg)}
+.btn.sm{padding:.3rem .8rem;min-height:36px;font-size:.9rem}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+label{display:block;font-weight:800;color:var(--ink);margin:.8rem 0 .3rem;font-size:.95rem}
+input,select,textarea{width:100%;padding:.6rem .8rem;border:2px solid #b4bfd8;border-radius:12px;background:#fff;min-height:46px;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(255,226,0,.55);outline:none}
+input[readonly]{background:#eef1f8;color:var(--muted)}
+input[type=checkbox],input[type=radio]{width:auto;min-height:0;transform:scale(1.3)}
+textarea{min-height:90px;resize:vertical}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.row>*{flex:0 0 auto}
+.row .grow{flex:1 1 200px}
+.muted{color:var(--muted)} .small{font-size:.9rem}
+.pill{display:inline-block;padding:.15rem .7rem;border-radius:99px;font-weight:800;font-size:.82rem;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)} .pill.info{background:#e1e8ff;color:var(--blue)}
+.bar{height:22px;background:#e3e8f5;border-radius:99px;overflow:hidden;position:relative;border:2px solid var(--blue)}
+.bar .fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-2));transition:width .7s ease}
+.bar .pend{position:absolute;top:0;height:100%;background:repeating-linear-gradient(45deg,var(--yellow),var(--yellow) 6px,#fff3a0 6px,#fff3a0 12px);transition:all .7s ease}
+.bar-label{display:flex;justify-content:space-between;font-weight:800;margin:.3rem 0 .4rem}
+.check{display:flex;gap:.7rem;align-items:flex-start;padding:.6rem 0;border-top:1px solid var(--line)}
+.check:first-of-type{border-top:0}
+.tick{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:#b3bdd6}
+.tick.ok{background:var(--ok)} .tick.no{background:var(--bad)}
+
+/* Hero with badge ring */
+.hero{background:linear-gradient(125deg,var(--blue-d),var(--blue) 60%,var(--blue-2));color:#fff;border-radius:22px;padding:1.5rem 1.6rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;box-shadow:0 18px 40px -20px rgba(0,35,102,.7);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;bottom:-110px;width:280px;height:280px;border-radius:50%;background:rgba(255,226,0,.12);pointer-events:none}
+.hero-text{flex:1 1 280px;position:relative;z-index:1}
+.hero h1{color:#fff;margin-bottom:.4rem;font-size:2rem}
+.hero p{margin:.3rem 0;color:#e3eaff;max-width:46ch}
+.hero.won{background:linear-gradient(125deg,#ffe200,#ffd000);color:var(--blue)}
+.hero.won h1,.hero.won p{color:var(--blue)}
+.hero.won::after{background:rgba(255,255,255,.35)}
+.ring{flex:0 0 auto;position:relative;width:170px;height:170px;z-index:1}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:13;stroke-linecap:round;transition:stroke-dasharray .8s ease}
+.ring .t{stroke:rgba(255,255,255,.2)} .ring .p{stroke:#9db4ff} .ring .a{stroke:var(--yellow)}
+.hero.won .ring .t{stroke:rgba(0,35,102,.18)} .hero.won .ring .p{stroke:rgba(0,35,102,.4)} .hero.won .ring .a{stroke:var(--blue)}
+.ring-mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center;line-height:1.1}
+.ring-mid b{font-family:var(--head);font-size:2.7rem}
+.ring-mid span{font-size:.85rem;opacity:.9}
+.badge-big{font-size:2.4rem;line-height:1;margin-bottom:.3rem}
+
+/* Criteria cards */
+.crit{border-top:6px solid var(--yellow);position:relative}
+.crit.done{border-top-color:var(--ok)}
+.crit-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+.crit-head h2{margin:0;flex:1}
+.ico{width:46px;height:46px;border-radius:14px;background:var(--yellow-soft);display:grid;place-items:center;font-size:1.5rem;flex:0 0 46px}
+.crit.done .ico{background:var(--ok-bg)}
+
+/* Teacher stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1rem}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem;box-shadow:var(--shadow);border-left:6px solid var(--yellow)}
+.stat b{display:block;font-family:var(--head);font-size:2rem;color:var(--blue);line-height:1}
+.stat span{font-size:.88rem;color:var(--muted);font-weight:700}
+.av{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--yellow);font-weight:800;font-size:.8rem;margin-right:.5rem;vertical-align:middle}
+
+.empty{padding:1.4rem;text-align:center;color:var(--muted);border:2px dashed #c5cde3;border-radius:var(--radius);background:rgba(255,255,255,.6)}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{text-align:left;padding:.75rem .8rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--blue);color:#fff;font-size:.88rem;font-weight:800}
+tr:last-child td{border-bottom:0}
+tr.rowlink{cursor:pointer}
+tr.rowlink:hover td{background:var(--yellow-soft)}
+tr.detail td{background:#f6f8fe;padding:1.2rem;border-bottom:3px solid var(--yellow)}
+.job{cursor:pointer;text-align:left;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:block}
+.job:hover{transform:translateY(-3px);box-shadow:0 0 0 3px var(--yellow),0 14px 28px -14px rgba(0,35,102,.5)}
+.job .ico{margin-bottom:.6rem}
+.job h3{margin-bottom:.3rem}
+.chip{display:inline-block;background:#e1e8ff;color:var(--blue);border-radius:8px;padding:.1rem .55rem;margin:.1rem .1rem .1rem 0;font-weight:800;font-size:.85rem}
+.chip.hrs{background:var(--yellow);}
+details{margin:.4rem 0}
+summary{cursor:pointer;font-weight:800;color:var(--blue)}
+
+/* Modal */
+.overlay{position:fixed;inset:0;background:rgba(0,15,50,.65);backdrop-filter:blur(3px);display:grid;place-items:center;padding:1rem;z-index:20}
+.modal{background:#fff;border-radius:20px;max-width:560px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:pop .22s ease}
+@keyframes pop{from{transform:translateY(14px);opacity:0}}
+.modal-head{display:flex;gap:.5rem;padding:.8rem 1rem;background:var(--blue);border-bottom:5px solid var(--yellow)}
+.modal-body{padding:1.1rem 1.3rem 1.5rem}
+dl.facts{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;margin:.8rem 0;background:var(--bg);padding:.8rem 1rem;border-radius:12px}
+dl.facts dt{font-weight:800;color:var(--blue)} dl.facts dd{margin:0}
+
+/* Login */
+.login-wrap{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:1.4rem;align-items:stretch}
+.login-art{background:linear-gradient(140deg,var(--blue-d),var(--blue) 55%,var(--blue-2));color:#fff;border-radius:22px;padding:2rem;position:relative;overflow:hidden;box-shadow:0 18px 40px -20px rgba(0,35,102,.7)}
+.login-art::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;border:38px solid rgba(255,226,0,.18)}
+.login-art h1{color:#fff;font-size:2.3rem}
+.login-art p{color:#dbe5ff}
+.pillars{display:grid;gap:.7rem;margin-top:1.4rem;position:relative;z-index:1}
+.pillar{display:flex;gap:.8rem;align-items:center;background:rgba(255,255,255,.1);border-radius:14px;padding:.7rem .9rem}
+.pillar .ico{background:var(--yellow);flex:0 0 42px;width:42px;height:42px}
+.pillar b{display:block;color:var(--yellow)}
+.pillar span{font-size:.9rem;color:#dbe5ff}
+.login-card{margin:0!important}
+.demo{display:grid;gap:.5rem;margin-top:.8rem}
+@media (max-width:820px){.login-wrap{grid-template-columns:1fr}.login-art{padding:1.4rem}}
+
+#toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;border-left:8px solid var(--yellow);padding:.8rem 1.2rem;border-radius:12px;z-index:50;display:none;max-width:90vw;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);font-weight:700}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:600px){body{font-size:16px} h1,.hero h1{font-size:1.5rem} .ring{width:140px;height:140px}.ring-mid b{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATABASE LAYER
+   These JS arrays mirror the tables in marist_man_schema.sql.
+   Data is saved in localStorage and shared between tabs in real time.
+   To use a real SQL database, replace load()/save() with fetch() calls
+   to a server that runs the queries in the .sql file.
+   ===================================================================== */
+const KEY = 'mmb_db_v1';
+const CFG = { hours: 20, attendance: 85, maxMinor: 2, effort: 3.7, mass: 80 };
+const bc = ('BroadcastChannel' in window) ? new BroadcastChannel('mmb_live') : null;
+
+function seed(){
+  const S = (id,name,email,year,form,att,re,ma,mt)=>({id,name,email,year,form,attendance:att,re,massAttended:ma,massTotal:mt,badge:{status:'none',reason:''}});
+  const students = [
+    S('S1001','Aroha Ngata','aroha@stjohns.example.nz',9,'9A',94,'Active',9,10),
+    S('S1002','Liam Walker','liam@stjohns.example.nz',10,'10B',82,'Active',8,10),
+    S('S1003','Tane Rewi','tane@stjohns.example.nz',11,'11C',96,'Active',10,10),
+    S('S1004','Sione Faleolo','sione@stjohns.example.nz',12,'12A',91,'Some',7,10),
+    S('S1005','Jack Thompson','jack@stjohns.example.nz',13,'13B',88,'Active',9,10),
+    S('S1006','Mia Patel','mia@stjohns.example.nz',9,'9B',97,'Active',10,10),
+    S('S1007','Noah Kingi','noah@stjohns.example.nz',10,'10A',86,'Active',9,10)
+  ];
+  const eff = {S1001:[4,4,5,4,4,4],S1002:[3,4,3,4,3],S1003:[5,4,4,5,4,4],S1004:[4,4,4,3,4,4],S1005:[4,4,3,4,4,4],S1006:[5,5,4,5],S1007:[4,4,4,4,4]};
+  const effort=[]; let g=1;
+  for(const id in eff) eff[id].forEach((v,i)=>effort.push({id:g++,studentId:id,fortnight:i+1,grade:v}));
+  const P=(s,t,d,type,note,i)=>({id:i,studentId:s,term:t,date:d,type,note});
+  const pastoral=[
+    P('S1002',1,'2026-02-20','minor','Late to class',1),
+    P('S1007',1,'2026-03-03','minor','No homework',2), P('S1007',1,'2026-03-20','minor','Uniform',3),
+    P('S1007',2,'2026-05-02','minor','Late to class',4), P('S1007',2,'2026-05-14','minor','Phone out in class',5),
+    P('S1007',2,'2026-06-01','minor','Uniform',6), P('S1007',3,'2026-08-11','minor','Late to class',7),
+    P('S1007',3,'2026-09-02','minor','No homework',8)
+  ];
+  const H=(i,s,form,h,a,sup,st,d,r='')=>({id:i,studentId:s,form,hours:h,activity:a,supervisor:sup,date:d,status:st,reason:r});
+  const hours=[
+    H(1,'S1001','9A',6,'Weet-Bix programme','johnson@stjohns.example.nz','Approved','2026-03-10'),
+    H(2,'S1001','9A',3,'Library helper','johnson@stjohns.example.nz','Pending Verification','2026-10-05'),
+    H(3,'S1002','10B',5,'Kitchen help','kitchen@stjohns.example.nz','Approved','2026-04-02'),
+    H(4,'S1002','10B',4,'Helping at home','mum@example.com','Rejected','2026-05-02','Household chores do not count.'),
+    H(5,'S1003','11C',22,'SPCA volunteering','volunteer@spca.example.nz','Approved','2026-07-15'),
+    H(6,'S1004','12A',16,'Tuakana service','johnson@stjohns.example.nz','Approved','2026-02-12'),
+    H(7,'S1004','12A',4,'Altar serving','father@stjohns.example.nz','Pending Verification','2026-10-08'),
+    H(8,'S1005','13B',12,'Coaching Year 9 rugby','coach@stjohns.example.nz','Approved','2026-06-20'),
+    H(9,'S1006','9B',2,'Young Vinnies sausage sizzle','vinnies@stjohns.example.nz','Approved','2026-05-30'),
+    H(10,'S1007','10A',20,'Young Vinnies foodbank','vinnies@stjohns.example.nz','Approved','2026-08-30')
+  ];
+  const jobs=[
+    {id:1,title:'Weet-Bix breakfast helper',desc:'Tidy up and refill Weet-Bix for students who need breakfast before school.',hours:1,location:'School canteen',date:'Every school morning',contact:'johnson@stjohns.example.nz',onlyYear:0},
+    {id:2,title:'Library helper',desc:'Help students find books, show where things are and scan books in and out.',hours:2,location:'School library',date:'Lunchtimes',contact:'library@stjohns.example.nz',onlyYear:0},
+    {id:3,title:'Tuakana for new Year 9s',desc:'Show the new Year 9 students around the school over two days at the start of the year.',hours:16,location:'Whole school',date:'Start of next year',contact:'ardern@stjohns.example.nz',onlyYear:12},
+    {id:4,title:'Year 8 introduction guide',desc:'Show Year 8 visitors around, explain the classes and areas and chat to them about what they will learn.',hours:6,location:'Whole school',date:'Term 4 intro day',contact:'ardern@stjohns.example.nz',onlyYear:10},
+    {id:5,title:'Young Vinnies sausage sizzle',desc:'Cook and sell a sausage sizzle to raise money for local charities.',hours:3,location:'School courts',date:'Friday this week',contact:'vinnies@stjohns.example.nz',onlyYear:0},
+    {id:6,title:'Altar server',desc:'Help the priest by serving the bread and wine at mass and church services.',hours:2,location:'School chapel',date:'House mass',contact:'father@stjohns.example.nz',onlyYear:0}
+  ];
+  return {students,teachers:[
+      {email:'ardern@stjohns.example.nz',name:'Mr Ardern',title:'Deputy Principal'},
+      {email:'johnson@stjohns.example.nz',name:'Ms Johnson',title:'Teacher'}],
+    effort,pastoral,hours,jobs,signups:[{id:1,jobId:2,studentId:'S1006',reason:'I love books and helping others.',status:'Applied'}],
+    nextId:100};
+}
+let mem=null;
+function load(){
+  try{ const r=localStorage.getItem(KEY); if(r) return JSON.parse(r); }catch(e){}
+  return mem || (mem=seed());
+}
+let db = load();
+function save(){
+  mem=db;
+  try{ localStorage.setItem(KEY,JSON.stringify(db)); }catch(e){}
+  if(bc) bc.postMessage('update');
+  render();
+}
+function remoteUpdate(){ db=load(); render(); }
+if(bc) bc.onmessage=remoteUpdate;
+addEventListener('storage',e=>{ if(e.key===KEY) remoteUpdate(); });
+const nid=()=>db.nextId++;
+
+/* ---------- Session / UI state ---------- */
+let me=null; try{ me=JSON.parse(sessionStorage.getItem('mmb_me')); }catch(e){}
+const ui={tab:'progress',search:'',form:'',status:'all',open:{},modal:null,view:null};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+
+function calc(s){
+  const mine=db.hours.filter(h=>h.studentId===s.id);
+  const approved=mine.filter(h=>h.status==='Approved').reduce((a,h)=>a+h.hours,0);
+  const pending=mine.filter(h=>h.status==='Pending Verification').reduce((a,h)=>a+h.hours,0);
+  const grades=db.effort.filter(e=>e.studentId===s.id).map(e=>e.grade);
+  const avg=grades.length?grades.reduce((a,b)=>a+b,0)/grades.length:0;
+  const minor=db.pastoral.filter(p=>p.studentId===s.id&&p.type==='minor');
+  const byTerm={1:0,2:0,3:0,4:0}; minor.forEach(p=>byTerm[p.term]++);
+  const worst=Math.max(...Object.values(byTerm));
+  const massPct=s.massTotal?Math.round(100*s.massAttended/s.massTotal):0;
+  const f={re:s.re==='Active',mass:massPct>=CFG.mass};
+  const i={att:s.attendance>=CFG.attendance,pas:worst<=CFG.maxMinor,eff:avg>CFG.effort};
+  const faith=f.re&&f.mass, integrity=i.att&&i.pas&&i.eff, service=approved>=CFG.hours;
+  return {approved,pending,avg,grades,byTerm,worst,massPct,f,i,faith,integrity,service,
+          all:faith&&integrity&&service,done:[faith,integrity,service].filter(Boolean).length,
+          togo:Math.max(0,CFG.hours-approved)};
+}
+const stu=id=>db.students.find(s=>s.id===id);
+const nameOf=id=>stu(id)?.name||id;
+const statusPill=st=>st==='Approved'?'<span class="pill ok">Approved</span>':st==='Rejected'?'<span class="pill bad">Rejected</span>':'<span class="pill warn">Pending Verification</span>';
+function jobIcon(t){t=t.toLowerCase();
+  const m=[[/weet|breakfast/,'🥣'],[/library/,'📚'],[/tuakana|guide|intro/,'🧭'],[/sausage|vinnies|foodbank/,'🌭'],[/altar|mass/,'🕊️'],[/spca|animal/,'🐾'],[/kitchen/,'🍳'],[/coach|sport/,'🏉']];
+  for(const [r,i] of m) if(r.test(t)) return i; return '🙌'; }
+const initials=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('');
+function ringHTML(c){
+  const C=2*Math.PI*66, a=Math.min(1,c.approved/CFG.hours), p=Math.min(1-a,c.pending/CFG.hours);
+  const la=a*C, lp=p*C;
+  return `<div class="ring" role="img" aria-label="${c.approved} of ${CFG.hours} service hours approved"><svg viewBox="0 0 160 160"><circle class="t" cx="80" cy="80" r="66"/>
+  <circle class="p" cx="80" cy="80" r="66" stroke-dasharray="${lp} ${C}" stroke-dashoffset="${-la}"/>
+  <circle class="a" cx="80" cy="80" r="66" stroke-dasharray="${la} ${C}"/></svg>
+  <div class="ring-mid"><b>${c.approved}</b><span>of ${CFG.hours} hours</span></div></div>`;
+}
+const tick=ok=>`<span class="tick ${ok?'ok':'no'}" aria-hidden="true">${ok?'✓':'✗'}</span>`;
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+const app=document.getElementById('app');
+function render(){
+  const keep={}; document.querySelectorAll('#app input[id],#app textarea[id],#app select[id]').forEach(el=>keep[el.id]=(el.type==='checkbox'||el.type==='radio')?el.checked:el.value);
+  const fid=document.activeElement&&document.activeElement.id;
+  app.innerHTML = me ? shell() : loginView();
+  document.body.classList.toggle('viewas',!!(me&&me.role==='teacher'&&ui.view));
+  for(const id in keep){ const el=document.getElementById(id); if(!el) continue; if(el.type==='checkbox'||el.type==='radio') el.checked=keep[id]; else el.value=keep[id]; }
+  if(fid){ const el=document.getElementById(fid); if(el){ el.focus(); if(el.setSelectionRange&&['text','search'].includes(el.type)){ try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} } } }
+}
+
+function loginView(){
+  return `<header class="top"><div class="top-in">${brand()}</div></header>
+  <main><div class="login-wrap">
+   <section class="login-art"><h1>Earn the Marist Man Badge. See where you are, any day.</h1>
+     <p>Log your service hours, check your progress and find jobs, all in one place.</p>
+     <div class="pillars">
+       <div class="pillar"><span class="ico">🕊️</span><div><b>Faith</b><span>RE class and masses</span></div></div>
+       <div class="pillar"><span class="ico">🛡️</span><div><b>Integrity</b><span>Attendance, pastoral and effort</span></div></div>
+       <div class="pillar"><span class="ico">🤝</span><div><b>Service</b><span>${CFG.hours} hours of community service</span></div></div>
+     </div></section>
+   <div class="card login-card">
+    <h2>Log in</h2>
+    <p class="muted">Use your school email and password.</p>
+    <form data-form="login">
+      <label for="lg-email">School email</label>
+      <input id="lg-email" name="email" type="email" autocomplete="username" placeholder="name@stjohns.example.nz" required>
+      <label for="lg-pass">Password</label>
+      <input id="lg-pass" name="pass" type="password" autocomplete="current-password" required>
+      <p id="lg-err" class="small" style="color:var(--bad);font-weight:800;min-height:1.3em">${ui.loginErr?esc(ui.loginErr):''}</p>
+      <button class="btn" style="width:100%">Log in</button>
+    </form>
+    <hr style="margin:1.2rem 0;border:0;border-top:1px solid var(--line)">
+    <p class="small"><b>Demo accounts.</b> Open two tabs, one student and one teacher, to watch updates appear live.</p>
+    <div class="demo">
+      <button class="btn ghost" data-act="demo" data-email="aroha@stjohns.example.nz">Student: Aroha (Year 9)</button>
+      <button class="btn ghost" data-act="demo" data-email="sione@stjohns.example.nz">Student: Sione (Year 12)</button>
+      <button class="btn alt" data-act="demo" data-email="ardern@stjohns.example.nz">Teacher: Mr Ardern</button>
+    </div>
+    <p class="small muted">Demo passwords: students <code>student123</code>, teachers <code>teacher123</code>.</p>
+   </div></div></main>${footer()}`;
+}
+function logoSVG(){
+  
+}
+function brand(){ return `<div class="brand">${logoSVG()}<div><b>St John's College</b><span>Marist Man Badge</span></div></div>`; }
+function footer(){ return `<footer>St John's College · Marist Man Badge tracker<br><button data-act="reset">Reset demo data</button></footer>`; }
+
+function shell(){
+  const teacher=me.role==='teacher';
+  const asStudent = !teacher || !!ui.view;
+  const pendingN=db.hours.filter(h=>h.status==='Pending Verification').length;
+  const tabs = asStudent
+    ? [['progress','My progress'],['log','Log hours'],['jobs','Jobs'],['about','About the badge']]
+    : [['students','Students'],['requests','Hour requests'+(pendingN?`<span class="count">${pendingN}</span>`:'')],['jobs','Jobs'],['about','About the badge']];
+  if(!tabs.some(t=>t[0]===ui.tab)) ui.tab=tabs[0][0];
+  const name = teacher ? db.teachers.find(t=>t.email===me.email)?.name : stu(me.id)?.name;
+  let body='';
+  const readonly = teacher && !!ui.view;
+  const sid = teacher ? ui.view : me.id;
+  if(asStudent){
+    if(ui.tab==='progress') body=progressView(stu(sid));
+    else if(ui.tab==='log') body=logView(stu(sid),readonly);
+    else if(ui.tab==='jobs') body=jobsView(stu(sid),readonly);
+    else body=aboutView();
+  } else {
+    if(ui.tab==='students') body=teacherStudents();
+    else if(ui.tab==='requests') body=teacherRequests();
+    else if(ui.tab==='jobs') body=teacherJobs();
+    else body=aboutView();
+  }
+  return `${readonly?`<div class="banner">👁 Viewing as student: ${esc(stu(sid).name)} (read only) <button class="btn sm" data-act="exitview">Back to teacher view</button></div>`:''}
+  <header class="top"><div class="top-in">${brand()}
+    <span class="live" title="Changes appear straight away"><i></i> Live</span>
+    <div class="who">${esc(name)} · ${teacher?'Teacher':'Student'} <button class="btn sm alt" data-act="logout">Log out</button></div></div></header>
+  <nav class="tabs" aria-label="Main"><div class="tabs-in">${tabs.map(t=>`<button class="tab" data-act="tab" data-tab="${t[0]}" ${ui.tab===t[0]?'aria-current="page"':''}>${t[1]}</button>`).join('')}</div></nav>
+  <main>${body}</main>${footer()}${ui.modal?jobModal(stu(sid),readonly):''}`;
+}
+
+/* ---------- STUDENT: progress ---------- */
+function progressView(s){
+  const c=calc(s);
+  const pctDone=Math.min(100,c.approved/CFG.hours*100);
+  const pctPend=Math.min(100-pctDone,c.pending/CFG.hours*100);
+  const first=esc(s.name.split(' ')[0]);
+  let cls='hero', txt;
+  if(s.badge.status==='awarded'){ cls='hero won'; txt=`<div class="badge-big">🏅</div><h1>You earned the Marist Man Badge!</h1><p>Well done, ${first}. Mr Ardern has confirmed your badge.</p>`; }
+  else if(c.all){ cls='hero won'; txt=`<div class="badge-big">🎉</div><h1>Every requirement met!</h1><p>Nice work, ${first}. Mr Ardern will confirm your badge soon.</p>`; }
+  else if(s.badge.status==='withheld') txt=`<h1>Badge not awarded yet</h1><p>Reason: ${esc(s.badge.reason||'Please see Mr Ardern.')}</p>`;
+  else txt=`<h1>Kia ora, ${first}</h1><p>You have finished <b>${c.done} of 3</b> parts of the Marist Man Badge.${c.togo>0?` You need <b>${c.togo} more service hour${c.togo===1?'':'s'}</b>.`:''}</p>${c.pending?`<p class="small">${c.pending} hour${c.pending===1?' is':'s are'} waiting to be checked.</p>`:''}`;
+  const hero=`<div class="${cls}"><div class="hero-text">${txt}</div>${ringHTML(c)}</div>`;
+  const head=(ico,title,ok)=>`<div class="crit-head"><span class="ico">${ico}</span><h2>${title}</h2>${ok?'<span class="pill ok">Done</span>':'<span class="pill warn">Not yet</span>'}</div>`;
+  return `${hero}
+  <div class="grid g3">
+    <section class="card crit ${c.service?'done':''}">${head('🤝','Service',c.service)}
+      <div class="bar-label"><span>${c.approved} of ${CFG.hours} hours</span><span>${Math.round(pctDone)}%</span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${CFG.hours}" aria-valuenow="${c.approved}" aria-label="Approved service hours"><div class="fill" style="width:${pctDone}%"></div><div class="pend" style="left:${pctDone}%;width:${pctPend}%"></div></div>
+      <p class="small muted">Blue = approved.${c.pending?` Yellow stripes = <b>${c.pending} hours</b> waiting for a teacher.`:''} Household chores do not count.</p>
+      <button class="btn alt" data-act="tab" data-tab="log">Log service hours</button>
+    </section>
+    <section class="card crit ${c.faith?'done':''}">${head('🕊️','Faith',c.faith)}
+      <div class="check">${tick(c.f.re)}<div><b>Active in RE class</b><br><span class="small muted">Your RE status: ${esc(s.re==='Active'?'Active':s.re==='Some'?'Sometimes active':'Needs to join in more')}</span></div></div>
+      <div class="check">${tick(c.f.mass)}<div><b>Going to school and house masses</b><br><span class="small muted">${s.massAttended} of ${s.massTotal} masses (${c.massPct}%). Aim for ${CFG.mass}% or more.</span></div></div>
+    </section>
+    <section class="card crit ${c.integrity?'done':''}">${head('🛡️','Integrity',c.integrity)}
+      <div class="check">${tick(c.i.att)}<div><b>Attendance ${CFG.attendance}% or more</b><br><span class="small muted">Yours: ${s.attendance}%</span></div></div>
+      <div class="check">${tick(c.i.pas)}<div><b>Max ${CFG.maxMinor} minor pastoral entries a term</b><br><span class="small muted">Most in one term: ${c.worst}</span></div></div>
+      <div class="check">${tick(c.i.eff)}<div><b>Effort average above ${CFG.effort}</b><br><span class="small muted">Yours: ${c.grades.length?c.avg.toFixed(2):'no grades yet'} (out of 5)</span></div></div>
+    </section>
+  </div>`;
+}
+
+/* ---------- STUDENT: log hours ---------- */
+function logView(s,ro){
+  const mine=db.hours.filter(h=>h.studentId===s.id).sort((a,b)=>b.id-a.id);
+  return `<div class="grid g2">
+  <section class="card"><h2>Log service hours</h2>
+    ${ro?'<p class="pill info">Read only while viewing as a student</p>':''}
+    <p class="small muted">Tell us what you did. A teacher will check it, then it counts toward your 20 hours.</p>
+    <form data-form="loghours">
+      <label for="lh-id">Student ID</label><input id="lh-id" name="sid" value="${esc(s.id)}" readonly>
+      <label for="lh-form">Form class</label><input id="lh-form" name="form" value="${esc(s.form)}" readonly>
+      <label for="lh-hours">Hours of service</label><input id="lh-hours" name="hours" type="number" min="0.5" max="40" step="0.5" required ${ro?'disabled':''}>
+      <label for="lh-act">What did you do?</label><textarea id="lh-act" name="activity" required ${ro?'disabled':''} placeholder="Example: Helped at the SPCA walking dogs"></textarea>
+      <label for="lh-sup">Email of the person who supervised you</label><input id="lh-sup" name="supervisor" type="email" required ${ro?'disabled':''} placeholder="supervisor@example.com">
+      <label>Is this true and not household chores?</label>
+      <div class="row"><label style="margin:0;font-weight:400"><input type="radio" id="lh-yes" name="confirm" value="yes" ${ro?'disabled':''}> Yes</label><label style="margin:0;font-weight:400"><input type="radio" id="lh-no" name="confirm" value="no" checked ${ro?'disabled':''}> No</label></div>
+      <p style="margin-top:1rem"><button class="btn" ${ro?'disabled':''}>Send for checking</button></p>
+    </form>
+  </section>
+  <section class="card"><h2>My submissions</h2>
+    ${mine.length?`<div class="table-wrap"><table><thead><tr><th>Date</th><th>Hours</th><th>Activity</th><th>Status</th></tr></thead><tbody>
+    ${mine.map(h=>`<tr><td>${esc(h.date)}</td><td>${h.hours}</td><td>${esc(h.activity)}${h.reason?`<br><span class="small" style="color:var(--bad)">${esc(h.reason)}</span>`:''}</td><td>${statusPill(h.status)}</td></tr>`).join('')}
+    </tbody></table></div>`:'<div class="empty">No hours yet. Fill in the form to add your first one.</div>'}
+  </section></div>`;
+}
+
+/* ---------- Jobs (student) ---------- */
+function jobsView(s,ro){
+  return `<h1>Job board</h1><p class="muted">Tap a job to read about it and sign up.</p>
+  <div class="grid g3">${db.jobs.length?db.jobs.map(j=>{
+    const su=db.signups.find(x=>x.jobId===j.id&&x.studentId===s.id);
+    const locked=j.onlyYear&&j.onlyYear!==s.year;
+    return `<button class="job" data-act="openjob" data-id="${j.id}"><span class="ico">${jobIcon(j.title)}</span><h3>${esc(j.title)}</h3>
+      <span class="chip hrs">${j.hours} hour${j.hours===1?'':'s'}</span>${j.onlyYear?`<span class="chip">Year ${j.onlyYear} only</span>`:''}
+      <p class="small muted" style="margin:.4rem 0">${esc(j.desc.slice(0,90))}${j.desc.length>90?'…':''}</p>
+      ${su?`<span class="pill ${su.status==='Declined'?'bad':'ok'}">${esc(su.status==='Applied'?'You signed up':su.status)}</span>`:locked?'<span class="pill info">Not for your year</span>':''}</button>`;}).join(''):'<div class="empty">No jobs posted yet. Check back soon.</div>'}</div>`;
+}
+function jobModal(s,ro){
+  const j=db.jobs.find(x=>x.id===ui.modal.id); if(!j) return '';
+  const su=s&&db.signups.find(x=>x.jobId===j.id&&x.studentId===s.id);
+  const locked=s&&j.onlyYear&&j.onlyYear!==s.year;
+  return `<div class="overlay" data-act="closemodal-bg"><div class="modal" role="dialog" aria-modal="true" aria-label="Job information">
+    <div class="modal-head"><button class="btn sm alt" data-act="closemodal" data-home="1">Home</button><button class="btn sm ghost" data-act="closemodal">Back</button></div>
+    <div class="modal-body"><span class="ico" style="margin-bottom:.5rem">${jobIcon(j.title)}</span><h2>${esc(j.title)}</h2>
+    <p>${esc(j.desc)}</p>
+    <dl class="facts"><dt>Hours you earn</dt><dd>${j.hours}</dd><dt>Location</dt><dd>${esc(j.location||'-')}</dd><dt>When</dt><dd>${esc(j.date||'-')}</dd><dt>Contact</dt><dd>${esc(j.contact||'-')}</dd><dt>Open to</dt><dd>${j.onlyYear?'Year '+j.onlyYear+' only':'All year levels'}</dd></dl>
+    ${ro?'<p class="pill info">Read only while viewing as a student</p>':
+      su?`<p>Your status: <span class="pill ${su.status==='Declined'?'bad':'ok'}">${esc(su.status==='Applied'?'Signed up, waiting for a teacher':su.status)}</span></p><p class="small muted">Your reason: ${esc(su.reason||'-')}</p>${su.status!=='Completed'?`<button class="btn bad" data-act="withdraw" data-id="${j.id}">Remove my sign-up</button>`:''}`:
+      locked?'<p class="pill info">This job is not open to your year level.</p>':
+      `<label for="su-reason">Why do you want to do this job?</label><textarea id="su-reason" placeholder="A short reason is fine"></textarea><p><button class="btn" data-act="signup" data-id="${j.id}">Sign up</button></p>`}
+    </div></div></div>`;
+}
+
+/* ---------- About ---------- */
+function aboutView(){
+  return `<h1>About the Marist Man Badge</h1>
+  <p class="muted">Earn all three parts during the year to get the badge.</p>
+  <div class="grid g3">
+   <section class="card crit"><div class="crit-head"><span class="ico">🕊️</span><h2>Faith</h2></div><p>Be active in RE classes and go to full school masses and house masses (at least ${CFG.mass}% of them).</p></section>
+   <section class="card crit"><div class="crit-head"><span class="ico">🛡️</span><h2>Integrity</h2></div><ul><li>Attend school at least ${CFG.attendance}% of the time</li><li>No more than ${CFG.maxMinor} minor pastoral entries in a term</li><li>Effort grade average above ${CFG.effort} (grades are 1 to 5, given every fortnight)</li></ul></section>
+   <section class="card crit"><div class="crit-head"><span class="ico">🤝</span><h2>Service</h2></div><p>Do at least <b>${CFG.hours} hours</b> of checked community service each year. Household chores do not count.</p><p class="small muted">Ideas: Young Vinnies, kitchen help, SPCA, Tuakana (Year 12), library helper, Year 8 intro (Year 10), coaching, Weet-Bix programme, altar serving.</p></section>
+  </div>`;
+}
+
+/* ---------- TEACHER: students ---------- */
+function teacherStudents(){
+  const forms=[...new Set(db.students.map(s=>s.form))].sort();
+  let list=db.students.filter(s=>{
+    const c=calc(s);
+    if(ui.form&&s.form!==ui.form) return false;
+    if(ui.search&&!(s.name+' '+s.id+' '+s.email).toLowerCase().includes(ui.search.toLowerCase())) return false;
+    if(ui.status==='ready'&&!(c.all&&s.badge.status!=='awarded')) return false;
+    if(ui.status==='attention'&&c.all) return false;
+    if(ui.status==='awarded'&&s.badge.status!=='awarded') return false;
+    return true;
+  });
+  const readyN=db.students.filter(s=>calc(s).all&&s.badge.status!=='awarded').length;
+  const awardedN=db.students.filter(s=>s.badge.status==='awarded').length;
+  const pendN=db.hours.filter(h=>h.status==='Pending Verification').length;
+  return `<h1>Students</h1>
+  <div class="stats"><div class="stat"><b>${db.students.length}</b><span>Students</span></div><div class="stat"><b>${readyN}</b><span>Ready for badge</span></div><div class="stat"><b>${awardedN}</b><span>Badges awarded</span></div><div class="stat"><b>${pendN}</b><span>Requests to check</span></div></div>
+  ${readyN?`<div class="card" style="background:var(--yellow-soft);border-color:var(--yellow)"><b>${readyN} student${readyN===1?' is':'s are'} ready for the badge.</b> <button class="btn sm" data-act="filter-ready">Show them</button></div>`:''}
+  <div class="card"><div class="row">
+    <div class="grow"><label for="f-search">Search by name, ID or email</label><input id="f-search" type="search" placeholder="Start typing a name…" value="${esc(ui.search)}"></div>
+    <div><label for="f-form">Form class</label><select id="f-form"><option value="">All classes</option>${forms.map(f=>`<option ${ui.form===f?'selected':''}>${f}</option>`).join('')}</select></div>
+    <div><label for="f-status">Show</label><select id="f-status">${[['all','Everyone'],['ready','Ready for badge'],['attention','Still working'],['awarded','Badge awarded']].map(o=>`<option value="${o[0]}" ${ui.status===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div>
+  </div></div>
+  ${list.length?`<div class="table-wrap"><table><thead><tr><th>Name</th><th>Year</th><th>Form</th><th>Service</th><th>Faith</th><th>Integrity</th><th>Badge</th></tr></thead><tbody>
+  ${list.map(s=>{const c=calc(s);const open=ui.open[s.id];
+    return `<tr class="rowlink" data-act="toggle" data-id="${s.id}" tabindex="0" aria-expanded="${!!open}"><td><span class="av" aria-hidden="true">${esc(initials(s.name))}</span><b>${open?'▾':'▸'} ${esc(s.name)}</b> <span class="small muted">${s.id}</span></td><td>${s.year}</td><td>${esc(s.form)}</td>
+    <td>${c.approved}/${CFG.hours}${c.pending?` <span class="pill warn">+${c.pending} pending</span>`:''}</td>
+    <td>${c.faith?'<span class="pill ok">Met</span>':'<span class="pill warn">Not yet</span>'}</td><td>${c.integrity?'<span class="pill ok">Met</span>':'<span class="pill warn">Not yet</span>'}</td>
+    <td>${s.badge.status==='awarded'?'<span class="pill ok">Awarded</span>':s.badge.status==='withheld'?'<span class="pill bad">Not awarded</span>':c.all?'<span class="pill info">Ready</span>':'<span class="pill warn">'+c.done+'/3</span>'}</td></tr>
+    ${open?`<tr class="detail"><td colspan="7">${studentDetail(s,c)}</td></tr>`:''}`;}).join('')}
+  </tbody></table></div>`:'<div class="empty">No students match. Try clearing the search or choosing another form class.</div>'}`;
+}
+function studentDetail(s,c){
+  const pas=db.pastoral.filter(p=>p.studentId===s.id).sort((a,b)=>b.date.localeCompare(a.date));
+  const pLine=p=>`<li>${esc(p.date)} · Term ${p.term} · <b>${p.type}</b> · ${esc(p.note)}</li>`;
+  return `<div class="grid g2">
+    <div>
+      <h3>Requirements</h3>
+      <div class="check">${tick(c.f.re)}<div>RE participation: <b>${esc(s.re)}</b></div></div>
+      <div class="check">${tick(c.f.mass)}<div>Mass attendance: <b>${s.massAttended}/${s.massTotal} (${c.massPct}%)</b></div></div>
+      <div class="check">${tick(c.i.att)}<div>School attendance: <b>${s.attendance}%</b></div></div>
+      <div class="check">${tick(c.i.pas)}<div>Worst term minor pastoral entries: <b>${c.worst}</b> (T1 ${c.byTerm[1]}, T2 ${c.byTerm[2]}, T3 ${c.byTerm[3]}, T4 ${c.byTerm[4]})</div></div>
+      <div class="check">${tick(c.i.eff)}<div>Effort average: <b>${c.grades.length?c.avg.toFixed(2):'none'}</b> <span class="small muted">(${c.grades.join(', ')||'no grades'})</span></div></div>
+      <div class="check">${tick(c.service)}<div>Service: <b>${c.approved}/${CFG.hours} hours</b></div></div>
+      <h3 style="margin-top:1rem">Pastoral entries (${pas.length})</h3>
+      ${pas.length?`<ul class="small">${pas.slice(0,5).map(pLine).join('')}</ul>${pas.length>5?`<details><summary>Show ${pas.length-5} more</summary><ul class="small">${pas.slice(5).map(pLine).join('')}</ul></details>`:''}`:'<p class="small muted">None.</p>'}
+    </div>
+    <div>
+      <h3>Badge decision</h3>
+      ${s.badge.status==='awarded'?'<p><span class="pill ok">Badge awarded</span></p><button class="btn bad sm" data-act="clearbadge" data-id="'+s.id+'">Undo decision</button>':
+      `<p class="small muted">${c.all?'All requirements are met.':'Not all requirements are met yet.'}</p>
+       <div class="row"><button class="btn" data-act="award" data-id="${s.id}" ${c.all?'':'disabled'}>Confirm badge</button></div>
+       <label for="wr-${s.id}">Or do not award it yet. Reason:</label>
+       <select id="wr-${s.id}">${['Attendance is too low','Too many pastoral entries','Service hours not verified','More evidence needed','Effort grades too low','RE or mass attendance too low'].map(r=>`<option>${r}</option>`).join('')}</select>
+       <p><button class="btn bad sm" data-act="withhold" data-id="${s.id}">Do not award</button> ${s.badge.status==='withheld'?`<span class="pill bad">Currently: ${esc(s.badge.reason)}</span>`:''}</p>`}
+      <p><button class="btn alt" data-act="viewas" data-id="${s.id}">View as student</button></p>
+      <h3 style="margin-top:1rem">Update data</h3>
+      <p class="small muted">Copy values from KAMAR here.</p>
+      <form data-form="editstudent" data-id="${s.id}">
+        <div class="row">
+          <div class="grow"><label for="ea-${s.id}">Attendance %</label><input id="ea-${s.id}" name="attendance" type="number" min="0" max="100" step="0.1" value="${s.attendance}"></div>
+          <div class="grow"><label for="er-${s.id}">RE participation</label><select id="er-${s.id}" name="re">${['Active','Some','Low'].map(o=>`<option ${s.re===o?'selected':''}>${o}</option>`).join('')}</select></div>
+        </div>
+        <div class="row">
+          <div class="grow"><label for="em-${s.id}">Masses attended</label><input id="em-${s.id}" name="ma" type="number" min="0" value="${s.massAttended}"></div>
+          <div class="grow"><label for="et-${s.id}">Masses held</label><input id="et-${s.id}" name="mt" type="number" min="0" value="${s.massTotal}"></div>
+        </div>
+        <p><button class="btn sm">Save changes</button></p>
+      </form>
+      <form data-form="addeffort" data-id="${s.id}" class="row">
+        <div class="grow"><label for="eg-${s.id}">New fortnightly effort grade (1 to 5)</label><input id="eg-${s.id}" name="grade" type="number" min="1" max="5" step="0.5" required></div>
+        <button class="btn sm">Add grade</button>
+      </form>
+      <form data-form="addpastoral" data-id="${s.id}">
+        <div class="row">
+          <div><label for="pt-${s.id}">Term</label><select id="pt-${s.id}" name="term"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></div>
+          <div><label for="pk-${s.id}">Type</label><select id="pk-${s.id}" name="type"><option>minor</option><option>major</option></select></div>
+          <div class="grow"><label for="pn-${s.id}">Note</label><input id="pn-${s.id}" name="note" required></div>
+          <button class="btn sm">Add entry</button>
+        </div>
+      </form>
+    </div></div>`;
+}
+
+/* ---------- TEACHER: hour requests ---------- */
+function teacherRequests(){
+  const forms=[...new Set(db.students.map(s=>s.form))].sort();
+  const pend=db.hours.filter(h=>h.status==='Pending Verification'&&(!ui.form||h.form===ui.form)).sort((a,b)=>a.form.localeCompare(b.form)||a.id-b.id);
+  const done=db.hours.filter(h=>h.status!=='Pending Verification').sort((a,b)=>b.id-a.id).slice(0,8);
+  return `<h1>Hour requests</h1>
+  <div class="card row"><div class="grow"><label for="f-form">Form class</label><select id="f-form"><option value="">All classes</option>${forms.map(f=>`<option ${ui.form===f?'selected':''}>${f}</option>`).join('')}</select></div>
+  <button class="btn" data-act="bulk" ${pend.length?'':'disabled'}>Approve ticked</button><button class="btn ghost" data-act="tickall" ${pend.length?'':'disabled'}>Tick all</button></div>
+  ${pend.length?pend.map(h=>`<section class="card"><div class="row"><label style="margin:0"><input type="checkbox" class="chk" id="ck-${h.id}" data-id="${h.id}" aria-label="Select request"></label>
+    <div class="grow"><b>${esc(nameOf(h.studentId))}</b> <span class="small muted">${h.studentId} · ${esc(h.form)} · ${esc(h.date)}</span><br>${h.hours} hour${h.hours===1?'':'s'} · ${esc(h.activity)}<br><span class="small muted">Supervisor: ${esc(h.supervisor)}</span></div></div>
+    <div class="row" style="margin-top:.6rem"><button class="btn sm" data-act="approve" data-id="${h.id}">Approve</button>
+    <div class="grow"><input id="rj-${h.id}" placeholder="Reason if rejecting" aria-label="Reason for rejecting"></div><button class="btn bad sm" data-act="reject" data-id="${h.id}">Reject</button></div></section>`).join(''):'<div class="empty">Nothing waiting. New submissions appear here straight away.</div>'}
+  ${done.length?`<h2 style="margin-top:1.5rem">Recently checked</h2><div class="table-wrap"><table><tbody>${done.map(h=>`<tr><td>${esc(nameOf(h.studentId))}</td><td>${h.hours}h</td><td>${esc(h.activity)}</td><td>${statusPill(h.status)}</td></tr>`).join('')}</tbody></table></div>`:''}`;
+}
+
+/* ---------- TEACHER: jobs ---------- */
+function teacherJobs(){
+  return `<div class="grid g2"><section class="card"><h2>Post a job</h2>
+   <form data-form="postjob">
+    <label for="pj-t">Job title</label><input id="pj-t" name="title" required>
+    <label for="pj-d">What will students do?</label><textarea id="pj-d" name="desc" required></textarea>
+    <div class="row"><div class="grow"><label for="pj-h">Hours earned</label><input id="pj-h" name="hours" type="number" min="0.5" step="0.5" required></div>
+    <div class="grow"><label for="pj-y">Open to</label><select id="pj-y" name="year"><option value="0">All years</option>${[9,10,11,12,13].map(y=>`<option value="${y}">Year ${y} only</option>`).join('')}</select></div></div>
+    <label for="pj-l">Location</label><input id="pj-l" name="location">
+    <label for="pj-w">Date or time</label><input id="pj-w" name="date">
+    <label for="pj-c">Contact email</label><input id="pj-c" name="contact" type="email">
+    <p><button class="btn">Post job</button></p></form></section>
+   <section><h2>Posted jobs</h2>${db.jobs.length?db.jobs.map(j=>{
+     const ss=db.signups.filter(x=>x.jobId===j.id);
+     return `<div class="card"><div class="row"><h3 class="grow" style="margin:0">${esc(j.title)}</h3><span class="chip">${j.hours}h</span><button class="btn bad sm" data-act="deljob" data-id="${j.id}">Delete</button></div>
+     ${ss.length?`<ul class="small" style="padding-left:1.1rem">${ss.map(x=>`<li><b>${esc(nameOf(x.studentId))}</b> (${esc(stu(x.studentId)?.form||'')}) <span class="pill ${x.status==='Declined'?'bad':x.status==='Applied'?'warn':'ok'}">${x.status}</span><br><span class="muted">${esc(x.reason||'No reason given')}</span><br>
+       ${x.status==='Applied'?`<button class="btn sm" data-act="sg-accept" data-id="${x.id}">Accept</button> <button class="btn bad sm" data-act="sg-decline" data-id="${x.id}">Decline</button>`:''}
+       ${x.status==='Accepted'?`<button class="btn alt sm" data-act="sg-complete" data-id="${x.id}">Done: award ${j.hours}h</button>`:''}</li>`).join('')}</ul>`:'<p class="small muted">No sign-ups yet.</p>'}</div>`;}).join(''):'<div class="empty">No jobs yet. Post one using the form.</div>'}</section></div>`;
+}
+
+/* =====================================================================
+   EVENTS
+   ===================================================================== */
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toast.t); toast.t=setTimeout(()=>t.style.display='none',3200); }
+function login(email,pass){
+  email=(email||'').trim().toLowerCase();
+  const s=db.students.find(x=>x.email===email), t=db.teachers.find(x=>x.email===email);
+  if(s&&pass==='student123') me={role:'student',id:s.id};
+  else if(t&&pass==='teacher123') me={role:'teacher',email:t.email};
+  else { ui.loginErr='That email or password is not right. Check it and try again.'; render(); return; }
+  ui.loginErr=''; ui.tab=me.role==='teacher'?'students':'progress'; ui.view=null; ui.modal=null;
+  try{ sessionStorage.setItem('mmb_me',JSON.stringify(me)); }catch(e){}
+  render();
+}
+const curStudentId=()=>me.role==='teacher'?ui.view:me.id;
+
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]'); if(!el) return;
+  const a=el.dataset.act, id=el.dataset.id;
+  if(a==='closemodal-bg'){ if(e.target!==el) return; ui.modal=null; return render(); }
+  if(a==='toggle'){ ui.open[id]=!ui.open[id]; return render(); }
+  switch(a){
+    case 'demo': return login(el.dataset.email, el.dataset.email.startsWith('ardern')?'teacher123':'student123');
+    case 'logout': me=null; ui.view=null; ui.modal=null; try{sessionStorage.removeItem('mmb_me');}catch(e){} return render();
+    case 'tab': ui.tab=el.dataset.tab; ui.modal=null; return render();
+    case 'viewas': ui.view=id; ui.tab='progress'; return render();
+    case 'exitview': ui.view=null; ui.tab='students'; return render();
+    case 'openjob': ui.modal={id:+id}; return render();
+    case 'closemodal': ui.modal=null; if(el.dataset.home) ui.tab='progress'; return render();
+    case 'filter-ready': ui.status='ready'; return render();
+    case 'reset': if(confirm('Reset all demo data?')){ db=seed(); save(); toast('Demo data reset.'); } return;
+    case 'signup': {
+      const sid=curStudentId(), j=db.jobs.find(x=>x.id===+id), s=stu(sid);
+      if(j.onlyYear&&j.onlyYear!==s.year) return toast('This job is not open to your year level.');
+      db.signups.push({id:nid(),jobId:+id,studentId:sid,reason:(document.getElementById('su-reason')?.value||'').trim(),status:'Applied'});
+      save(); return toast('You are signed up. A teacher will confirm.');
+    }
+    case 'withdraw': db.signups=db.signups.filter(x=>!(x.jobId===+id&&x.studentId===curStudentId())); save(); return toast('Sign-up removed.');
+    case 'approve': { const h=db.hours.find(x=>x.id===+id); h.status='Approved'; h.reason=''; save(); return toast('Approved.'); }
+    case 'reject': { const h=db.hours.find(x=>x.id===+id); const r=(document.getElementById('rj-'+id).value||'').trim();
+      if(!r) return toast('Add a reason so the student knows what to fix.'); h.status='Rejected'; h.reason=r; save(); return toast('Rejected.'); }
+    case 'tickall': document.querySelectorAll('.chk').forEach(c=>c.checked=true); return;
+    case 'bulk': { const ids=[...document.querySelectorAll('.chk:checked')].map(c=>+c.dataset.id);
+      if(!ids.length) return toast('Tick at least one request first.');
+      db.hours.forEach(h=>{ if(ids.includes(h.id)){h.status='Approved';h.reason='';} }); save(); return toast(ids.length+' approved.'); }
+    case 'award': stu(id).badge={status:'awarded',reason:''}; save(); return toast('Badge confirmed for '+stu(id).name+'.');
+    case 'withhold': stu(id).badge={status:'withheld',reason:document.getElementById('wr-'+id).value}; save(); return toast('Decision saved.');
+    case 'clearbadge': stu(id).badge={status:'none',reason:''}; save(); return;
+    case 'deljob': if(confirm('Delete this job?')){ db.jobs=db.jobs.filter(j=>j.id!==+id); db.signups=db.signups.filter(x=>x.jobId!==+id); save(); } return;
+    case 'sg-accept': db.signups.find(x=>x.id===+id).status='Accepted'; save(); return;
+    case 'sg-decline': db.signups.find(x=>x.id===+id).status='Declined'; save(); return;
+    case 'sg-complete': { const x=db.signups.find(v=>v.id===+id), j=db.jobs.find(v=>v.id===x.jobId), s=stu(x.studentId);
+      x.status='Completed'; db.hours.push({id:nid(),studentId:s.id,form:s.form,hours:j.hours,activity:j.title,supervisor:j.contact||'',date:today(),status:'Approved',reason:''});
+      save(); return toast(j.hours+' hours added for '+s.name+'.'); }
+  }
+});
+document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.matches('tr.rowlink')){ e.preventDefault(); e.target.click(); } if(e.key==='Escape'&&ui.modal){ ui.modal=null; render(); } });
+document.addEventListener('input',e=>{
+  if(e.target.id==='f-search'){ ui.search=e.target.value; render(); }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='f-form'){ ui.form=e.target.value; render(); }
+  if(e.target.id==='f-status'){ ui.status=e.target.value; render(); }
+});
+document.addEventListener('submit',e=>{
+  const f=e.target.closest('form[data-form]'); if(!f) return; e.preventDefault();
+  const d=Object.fromEntries(new FormData(f)), type=f.dataset.form, id=f.dataset.id;
+  if(type==='login') return login(d.email,d.pass);
+  if(type==='loghours'){
+    if(me.role==='teacher'&&ui.view) return toast('You are viewing as a student. Switch back to submit.');
+    if(d.confirm!=='yes') return toast('Please choose Yes to confirm your hours are true and not household chores.');
+    const h=parseFloat(d.hours); if(!(h>0)) return toast('Enter how many hours you did.');
+    const s=stu(curStudentId());
+    db.hours.push({id:nid(),studentId:s.id,form:s.form,hours:h,activity:d.activity.trim(),supervisor:d.supervisor.trim(),date:today(),status:'Pending Verification',reason:''});
+    f.reset(); save(); return toast('Sent. Status: Pending Verification.');
+  }
+  if(type==='editstudent'){ const s=stu(id); s.attendance=+d.attendance; s.re=d.re; s.massAttended=+d.ma; s.massTotal=+d.mt; save(); return toast('Saved.'); }
+  if(type==='addeffort'){ const n=db.effort.filter(x=>x.studentId===id).length+1; db.effort.push({id:nid(),studentId:id,fortnight:n,grade:+d.grade}); f.reset(); save(); return toast('Grade added.'); }
+  if(type==='addpastoral'){ db.pastoral.push({id:nid(),studentId:id,term:+d.term,date:today(),type:d.type,note:d.note.trim()}); f.reset(); save(); return toast('Entry added.'); }
+  if(type==='postjob'){ db.jobs.push({id:nid(),title:d.title.trim(),desc:d.desc.trim(),hours:+d.hours,location:d.location,date:d.date,contact:d.contact,onlyYear:+d.year}); f.reset(); save(); return toast('Job posted. Students can see it now.'); }
+});
+
+render();
+</script>
+</body>
+</html>
